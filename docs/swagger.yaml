@@ -1,0 +1,171 @@
+basePath: /categories
+definitions:
+  errors.HTTPError:
+    properties:
+      message:
+        type: string
+      status:
+        type: integer
+    type: object
+  models.Category:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  payloads.Category:
+    properties:
+      name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  title: Category API documentation
+  version: 0.1.0
+paths:
+  /:
+    post:
+      consumes:
+      - application/json
+      description: Create new category
+      parameters:
+      - description: Category Data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.Category'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Create new category using sent name
+      tags:
+      - Categories
+  /v1:
+    delete:
+      description: Delete category
+      parameters:
+      - description: Category ID
+        in: query
+        name: ID
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Delete category using given ID
+      tags:
+      - Categories
+    get:
+      description: get categories by params
+      parameters:
+      - description: Category ID
+        in: query
+        name: ID
+        type: string
+      - description: Category Name
+        in: query
+        name: name
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Get list of categories
+      tags:
+      - Categories
+    patch:
+      consumes:
+      - application/json
+      description: Update category
+      parameters:
+      - description: ID of Category
+        in: query
+        name: ID
+        required: true
+        type: string
+      - description: Category Data
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/payloads.Category'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "422":
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Update category  using given ID
+      tags:
+      - Categories
+  /v1/home:
+    get:
+      description: Show welcome message
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Category'
+      summary: Show welcome message
+      tags:
+      - Categories Home
+swagger: "2.0"
