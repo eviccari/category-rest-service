@@ -159,7 +159,10 @@ func (categoryRouter *CategoryRouter) Delete(c *gin.Context){
 		return
 	}
 
-	c.IndentedJSON(http.StatusOK, fmt.Sprintf("entity with id %v deleted", filters.ID))
+	c.IndentedJSON(
+		http.StatusOK, 
+		gin.H{"message": fmt.Sprintf("category with id %v deleted", filters.ID)},
+	)
 }
 
 

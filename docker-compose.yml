@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  rest:
+    image: category-rest-service:latest
+    ports:
+      - "8080:8080"
+    links:
+      - mongo-local
+  mongo-local:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123

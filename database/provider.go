@@ -4,6 +4,7 @@ import (
 	"category-rest-service/utils"
 	"context"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -24,6 +25,7 @@ func (p Provider) MongoDB() (db *mongo.Collection, err error) {
 	var ctx = context.TODO()
 
 	if err := godotenv.Load(); err != nil {
+		log.Fatal(err.Error())
 		utils.PanicIfError(err)
 	}
 

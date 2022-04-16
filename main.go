@@ -46,5 +46,5 @@ func main() {
 		appGroup.GET("/docs/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	}
 
-	utils.PanicIfError(app.Run("localhost:8080"))
+	utils.PanicIfError(app.Run("0.0.0.0:8080"))
 }
