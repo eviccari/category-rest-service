@@ -104,7 +104,7 @@ curl --request POST "http://localhost:8080/categories/v1/" \
 
 - ### **/categories/v1/ -> GET:** Get category(ies)
 
-The GET method search categories using given parameters that have been sent over URI query string. Actually, API supports **ID** and **Name** as query parameters (optionals):
+The GET method search categories using given parameters that have been sent over URI query string. Actually, API supports **ID** and **Name** as query parameters (optional):
 
 **Request**
 
