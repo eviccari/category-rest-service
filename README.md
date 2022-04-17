@@ -79,7 +79,9 @@ docker run -d --rm -p 27017:27017 --name mongo-local -e MONGO_INITDB_ROOT_USERNA
   ![Alt text](./images/create_repository_and_collection.png?raw=true "Create repository and collection")
 
 - **Create unique index category_index_by_ID:**
-  Necessary because the category identifier must be provided and controlled by API instead _MongoDB ObjectID_ (avoid vendor lock in).
+  Necessary because the category identifier must be provided and controlled by API instead _MongoDB ObjectID_ (avoid vendor lock in):
+
+![Alt text](./images/create_index_by_id.png?raw=true "Create unique index by custom ID")
 
 #
 
