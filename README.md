@@ -51,6 +51,13 @@ MONGODB_COLL=categories
 MONGODB_REPO=repositories
 ```
 
+Run service:
+
+```bash
+cd ./dist
+./category-rest-service-runner
+```
+
 #
 
 ## Prepare MongoDB Collection
