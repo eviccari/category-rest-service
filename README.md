@@ -4,7 +4,7 @@
 
 #
 
-## Marjory Dependencies
+## Basic Dependencies
 
 - Golang 1.18
 - MongoDB 5.0.6 Community Edition
